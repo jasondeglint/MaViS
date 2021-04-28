@@ -6,6 +6,9 @@ Prequisites:
 - Gst-python
 
 To run the test app:
-  $ python3 main.py <v4l2-device-path> <folder-name>
+
+`$ python3 main.py <v4l2-device-path> <folder-name>`
+
 Example:
-  $ python3 main.py /dev/video0 ~/output
+
+`$ python3 main.py /dev/video0 ~/output`
