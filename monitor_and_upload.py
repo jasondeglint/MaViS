@@ -2,12 +2,13 @@ import os
 from datetime import datetime
 import cv2
 import numpy as np
+import time
 
 
-IN_FOLDER = '/home/bll/output5/'
+IN_FOLDER = '/home/bll/output4/'
 OUT_FOLDER = '/home/bll/archive/'
 
-def write_video(video_file, IN_FOLDER, frames):
+def write_video(IN_FOLDER, frames, video_file):
     img = cv2.imread(IN_FOLDER + frames[0])
     height, width, layers = img.shape
     img_size = (width,height)
@@ -19,14 +20,75 @@ def write_video(video_file, IN_FOLDER, frames):
     out.release()
 
 
-dt = datetime.now()
-files = os.listdir(IN_FOLDER)
-files.sort()
-image_file = files[int(len(files)/2)]
-video_file = OUT_FOLDER + dt.strftime("%Y-%m-%d_%H-%M-%S") + '_video.avi'
+reset = True
+
+while True:
+
+    if reset:
+        all_files = []
+        start = datetime.now()
+        reset = False
+        new_scene = True
+
+    files = os.listdir(IN_FOLDER)
+    new_files = list(set(files) - set(all_files))
+    
+
+    print('files :    ', files)
+    print('new files: ', new_files)
+
+    # check if we have new files or not
+    if new_files:     
+        print("adding files")
+        all_files.extend(new_files)
+        print(all_files)
+        print('all files: ', all_files)
+        time.sleep(0.1)     
+
+        if new_scene:
+            image_input_file = IN_FOLDER + all_files[int(len(files)/2)]
+            image_ouput_file = video_file = OUT_FOLDER + start.strftime("%Y-%m-%d_%H-%M-%S") + '_image.jpg'
+
+            #TODO: write image_ouput_file to S3
+
+    else:
+        print('no new files')
+        time.sleep(0.1)
+
+        # if we have no new files and it's been longer than 3 seconds
+        if ((datetime.now() - start).total_seconds() > 3): # if less than 3 seconds have passed and we have new files
+            if all_files:
+                video_output_file = OUT_FOLDER + start.strftime("%Y-%m-%d_%H-%M-%S") + '_video.avi'
+                write_video(IN_FOLDER, all_files, video_output_file)
+
+                # TODO: write video_output_file to S3
+                
+            # remove all previous images
+            print('deleting files')
+            for file in all_files:
+                new_files.sort()
+                os.remove(IN_FOLDER+file)
+            reset = True
 
 
-print(image_file)
-print(video_file)
 
-write_video(video_file, IN_FOLDER, files)
+
+
+
+'''
+if there are no photos after x seconds
+then write a video to s3
+
+'''
+
+'''
+if files: # files will be True if list is not empty
+    dt = datetime.now()
+    files = os.listdir(IN_FOLDER)
+    files.sort()
+    image_file = IN_FOLDER + files[int(len(files)/2)]
+    video_file = OUT_FOLDER + dt.strftime("%Y-%m-%d_%H-%M-%S") + '_video.avi'
+    write_video(video_file, IN_FOLDER, files)
+    print(image_file)
+    print(video_file)
+'''
