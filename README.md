@@ -1,6 +1,6 @@
 # Jetson-Security-System
 
-Prequisites:
+prerequisite:
 - DeepStreamSDK 5.1
 - Python 3.6
 - Gst-python
