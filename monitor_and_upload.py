@@ -3,6 +3,9 @@ from datetime import datetime
 import cv2
 import numpy as np
 import time
+import boto3
+
+from upload_data import upload_file
 
 
 IN_FOLDER = '/home/bll/output4/'
@@ -19,6 +22,11 @@ def write_video(IN_FOLDER, frames, video_file):
         out.write(img)
     out.release()
 
+s3_client = boto3.client('s3')
+metadata = {
+    "sender": "jason@bluelionlabs.com",
+    "receiver": "jason@bluelionlabs.com   juan@bluelionlabs.com"
+}
 
 reset = True
 
@@ -43,25 +51,32 @@ while True:
         all_files.extend(new_files)
         print(all_files)
         print('all files: ', all_files)
-        time.sleep(0.1)     
+        time.sleep(0.01)     
 
         if new_scene:
             image_input_file = IN_FOLDER + all_files[int(len(files)/2)]
-            image_ouput_file = video_file = OUT_FOLDER + start.strftime("%Y-%m-%d_%H-%M-%S") + '_image.jpg'
+            image = cv2.imread(image_input_file)
+            image_ouput_file = OUT_FOLDER + start.strftime("%Y-%m-%d_%H-%M-%S") + '_image.jpg'
+            cv2.imwrite(image_ouput_file, image)
+            new_scene = False
 
             #TODO: write image_ouput_file to S3
+            print('Connecting to client...')            
+            upload_file(s3_client, image_ouput_file, metadata=metadata)
 
     else:
         print('no new files')
-        time.sleep(0.1)
+        time.sleep(0.01)
 
         # if we have no new files and it's been longer than 3 seconds
-        if ((datetime.now() - start).total_seconds() > 3): # if less than 3 seconds have passed and we have new files
+        if ((datetime.now() - start).total_seconds() > 4): # if less than 3 seconds have passed and we have new files
             if all_files:
                 video_output_file = OUT_FOLDER + start.strftime("%Y-%m-%d_%H-%M-%S") + '_video.avi'
                 write_video(IN_FOLDER, all_files, video_output_file)
 
                 # TODO: write video_output_file to S3
+                print('Connecting to client...')
+                upload_file(s3_client, video_output_file, metadata=metadata)
                 
             # remove all previous images
             print('deleting files')
