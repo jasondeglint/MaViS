@@ -42,16 +42,16 @@ while True:
     new_files = list(set(files) - set(all_files))
     
 
-    print('files :    ', files)
-    print('new files: ', new_files)
+    #print('files :    ', files)
+    #print('new files: ', new_files)
 
     # check if we have new files or not
     if new_files:     
         print("adding files")
         all_files.extend(new_files)
-        print(all_files)
-        print('all files: ', all_files)
-        time.sleep(0.01)     
+        #print(all_files)
+        #print('all files: ', all_files)
+        time.sleep(0.1)     
 
         if new_scene:
             image_input_file = IN_FOLDER + all_files[int(len(files)/2)]
@@ -61,27 +61,26 @@ while True:
             new_scene = False
 
             #TODO: write image_ouput_file to S3
-            print('Connecting to client...')            
+            print('Uploading image...')            
             upload_file(s3_client, image_ouput_file, metadata=metadata)
 
     else:
-        print('no new files')
-        time.sleep(0.01)
+        #print('no new files')
+        time.sleep(0.1)
 
         # if we have no new files and it's been longer than 3 seconds
-        if ((datetime.now() - start).total_seconds() > 4): # if less than 3 seconds have passed and we have new files
+        if ((datetime.now() - start).total_seconds() > 6): # if less than 3 seconds have passed and we have new files
             if all_files:
                 video_output_file = OUT_FOLDER + start.strftime("%Y-%m-%d_%H-%M-%S") + '_video.avi'
                 write_video(IN_FOLDER, all_files, video_output_file)
 
                 # TODO: write video_output_file to S3
-                print('Connecting to client...')
-                upload_file(s3_client, video_output_file, metadata=metadata)
+                print('Uploading video...')
+                #upload_file(s3_client, video_output_file, metadata=metadata)
                 
             # remove all previous images
-            print('deleting files')
+            print('RESET')
             for file in all_files:
-                new_files.sort()
                 os.remove(IN_FOLDER+file)
             reset = True
 

@@ -75,6 +75,10 @@ output-blob-names=conv2d_bbox;conv2d_cov/Sigmoid
 #scaling-compute-hw=0
 
 [class-attrs-all]
-pre-cluster-threshold=0.2
+pre-cluster-threshold=1.5
 eps=0.2
 group-threshold=1
+
+
+[class-attrs-2]
+pre-cluster-threshold=0.2
