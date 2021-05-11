@@ -1,4 +1,4 @@
-# Jetson-Security-System
+# InVision: Intelligent Vision Security System
 
 prerequisite:
 - DeepStreamSDK 5.1
