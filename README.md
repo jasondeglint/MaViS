@@ -1,5 +1,4 @@
-# InVision: Intelligent Vision Security System
-# MaViS: Machine Vision Security System
+# Machine Vision Security (MaViS) System
 
  **Ma**chine **Vi**sion **S**ecurity (MaViS) System
 
