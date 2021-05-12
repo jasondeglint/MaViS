@@ -1,5 +1,7 @@
 # InVision: Intelligent Vision Security System
-# MaViS: **Ma**chine **Vi**sion **S**ecurity System
+# MaViS: Machine Vision Security System
+
+ **Ma**chine **Vi**sion **S**ecurity (MaViS) System
 
 prerequisite:
 - DeepStreamSDK 5.1
