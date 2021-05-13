@@ -6,13 +6,18 @@ The MaViS (**Ma**chine **Vi**sion **S**ecurity) system is an machine learning ba
 
 <img src="/media/overview.png" width=600>
 
-# MaViS Public Code
+# Demo & Additional Resources
 
-This repository only contains the details and code to setup the Nvidia Jetson Nano.
+![](/media/mavis_demo.gif)
 
 Additional resources include:
 1. A [short report]() including a description of the Jetson Nano and AWS setup.
 2. A [video demo]() and overview of the MaViS sytem.
+
+
+# Public Code
+
+This repository only contains the details and code to setup the Nvidia Jetson Nano.
 
 Setting up the Jetson Nano includes the following steps:
 1. Install JetPack 4.5.1
