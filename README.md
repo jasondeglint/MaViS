@@ -11,11 +11,11 @@ The MaViS (**Ma**chine **Vi**sion **S**ecurity) system is an machine learning ba
 ![](/media/mavis_demo.gif)
 
 Additional resources include:
-1. A [short report]() including a description of the Jetson Nano and AWS setup.
+1. A [short report]() including a description of the engineering design and process of Jetson Nano and AWS.
 2. A [video demo]() and overview of the MaViS sytem.
 
 
-# Public Code
+# Setup
 
 This repository only contains the details and code to setup the Nvidia Jetson Nano.
 
@@ -26,13 +26,13 @@ Setting up the Jetson Nano includes the following steps:
 4. Setup AWS Connection (optional)
 5. Run MaViS
 
-# Install JetPack 4.5.1
+## 1. Install JetPack 4.5.1
 
-# Install DeepStream SDK 5.1
+## 2. Install DeepStream SDK 5.1
 
-# Install MaViS
+## 3. Install MaViS
 
-# Setup AWS Connection (Optional)
+## 4. Setup AWS Connection (Optional)
 
 
 Setup:
@@ -56,7 +56,7 @@ To check:
 $ pip3 install awscli --upgrade --user
 ```
 
-# Run MaViS
+## 5. Run MaViS
 
 <img src="/media/jetson_code.png" width=600>
 
