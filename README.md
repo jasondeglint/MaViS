@@ -11,7 +11,7 @@ The MaViS (**Ma**chine **Vi**sion **S**ecurity) system is an machine learning ba
 ![](/media/mavis_demo.gif)
 
 Additional resources include:
-1. A [short report]() including a description of the engineering design and process of Jetson Nano and AWS.
+1. A [short report]() including a description of the engineering design and process of setting up both Jetson Nano and AWS.
 2. A [video demo]() and overview of the MaViS sytem.
 
 
