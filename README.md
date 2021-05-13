@@ -1,6 +1,6 @@
-# Machine Vision Security (MaViS) System
+(/media/mavis_logo.png)
 
- **Ma**chine **Vi**sion **S**ecurity (MaViS) system
+
 
 prerequisite:
 - DeepStreamSDK 5.1
