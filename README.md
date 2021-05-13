@@ -2,7 +2,7 @@
 
 # Background
 
-The MaViS (**Ma**chine **Vi**sion **S**ecurity) system is an machine learning based security platform that automatically monitors and detects people in a scene, and then alerts the user in real time by sending an image and video to their email. The system is enabled through a combination of edge computing and cloud infrastructure. The edge platform used was the Nvidia Jetson Nano 4GB Developer Kit, and the cloud infrastructure was built using Amazon Web Services (AWS).
+The MaViS (**Ma**chine **Vi**sion **S**ecurity) system is a machine learning based security platform that automatically monitors and detects people in a scene, and then alerts the user in real time by sending an image and video to their email. The system is enabled through a combination of edge computing and cloud infrastructure. The edge platform used was the Nvidia Jetson Nano 4GB Developer Kit, and the cloud infrastructure was built using Amazon Web Services (AWS).
 
 <img src="/media/overview.png" width=600>
 
