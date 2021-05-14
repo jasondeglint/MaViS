@@ -11,7 +11,7 @@ The MaViS (**Ma**chine **Vi**sion **S**ecurity) system is a machine learning bas
 
 This project is a final deliverable for the [Full Stack Deep Learning](https://fullstackdeeplearning.com/) course. 
 
-When implementing the edge component the project went through three interations. This repository only contains the code of the Nvidia Jetson Nano used in the final version of the project.
+Implementing the edge component the project went through three interations. This repository only contains the code of the Nvidia Jetson Nano used in the final version of the project.
 
 ![](/media/project_history.png)
 
@@ -45,10 +45,9 @@ To install DeepStream SDK 5.1, plese follow the [instructions here](https://docs
 
 ## 3. Install MaViS
 
-To install MaViS clone this repository:
+To install MaViS clone this repository onto the Jetson Nano:
 
 `$ git clone https://github.com/jasondeglint/MaViS.git`
-
 
 ## 4. Setup AWS Connection (optional)
 
@@ -81,7 +80,7 @@ The Python code for the Nvidia Jetson contains two scripts:
 
 <img src="/media/jetson_code.png" width=600>
 
-To properly run the entire system you must run both scripts at the same in two separate terminals.
+To properly run the entire system you must run both scripts at the same in **two separate terminals**.
 
 ### Video Streaming & Inference using DeepStream
 
