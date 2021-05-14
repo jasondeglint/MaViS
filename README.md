@@ -76,7 +76,7 @@ $ pip3 install awscli --upgrade --user
 ## 5. Run MaViS
 
 The Python code for the Nvidia Jetson contains two scripts: 
-1. `The main.py` script monitors the video stream and automatically saves frames that contain a positive classification. 
+1. The `main.py` script monitors the video stream and automatically saves frames that contain a positive classification. 
 2. The `monitor_and_upload.py` script uploads a sample image as soon as an intruder enters a scene, and then also uploads a video once the intruder leaves the scene.
 
 <img src="/media/jetson_code.png" width=600>
