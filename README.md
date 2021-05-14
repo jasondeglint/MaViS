@@ -99,11 +99,11 @@ To run the montoring code:
 
 `$ python3 monitor_and_upload.py <input-folder-name> <archive-folder-name> UPLOAD_TO_AWS`
 
-Where, `UPLOAD_TO_AWS` is a boolean.
+Where, `UPLOAD_TO_AWS` is a boolean. If you want to upload to AWS, enter `true` or `True`. To not upload you can enter any other chacter(s).
 
 For example:
 
-`$ python3 monitor_and_upload.py ~/images/ ~/archive/ True`
+`$ python3 monitor_and_upload.py ~/images/ ~/archive/ False`
 
 # To Do
 4. add final report to github link and repo
