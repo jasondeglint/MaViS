@@ -17,7 +17,7 @@ Implementing the edge component the project went through three interations. This
 
 # Full Project Details
 
-A [short report]() is available that includes:
+A [short report](/media/MaViS_short_report.pdf) is available that includes:
 1. A more detailed project history.
 2. A description of the engineering design.
 3. The process of setting up both Jetson Nano and AWS.
@@ -103,7 +103,3 @@ Where, `UPLOAD_TO_AWS` is a boolean. If you want to upload to AWS, enter `true` 
 For example:
 
 `$ python3 monitor_and_upload.py ~/images/ ~/archive/ False`
-
-# To Do
-4. add final report to github link and repo
-5. submit project!
