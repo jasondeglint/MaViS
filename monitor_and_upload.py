@@ -78,7 +78,7 @@ while True:
             new_scene = False
 
             #TODO: write image_ouput_file to S3
-            if SAVE_TO_AWS:
+            if SAVE_TO_AWS.lower() == 'true':
                 print('Uploading image...')            
                 upload_file(s3_client, image_ouput_file, metadata=metadata)
 
@@ -93,7 +93,7 @@ while True:
                 write_video(IN_FOLDER, all_files, video_output_file)
 
                 # TODO: write video_output_file to S3
-                if SAVE_TO_AWS:
+                if SAVE_TO_AWS.lower() == 'true':
                     print('Uploading video...')
                     upload_file(s3_client, video_output_file, metadata=metadata)
                     
