@@ -1,4 +1,5 @@
 ![](/media/mavis_logo.png)
+![](/media/mavis_demo.gif)
 
 # Background
 
@@ -6,18 +7,26 @@ The MaViS (**Ma**chine **Vi**sion **S**ecurity) system is a machine learning bas
 
 <img src="/media/overview.png" width=600>
 
-# Demo & Additional Resources
+# Project History
 
-![](/media/mavis_demo.gif)
+This project is a final deliverable for the [Full Stack Deep Learning](https://fullstackdeeplearning.com/) course. 
 
-Additional resources include:
-1. A [short report]() including a description of the engineering design and process of setting up both Jetson Nano and AWS.
-2. A [video demo]() and overview of the MaViS sytem.
+When implementing the edge component the project went through three interations. This repository only contains the code of the Nvidia Jetson Nano used in the final version of the project.
 
+![](/media/project_history.png)
 
-# Setup
+# Full Project Details
 
-This repository only contains the details and code to setup the Nvidia Jetson Nano.
+A [short report]() is available that includes:
+1. a more detailed histor
+2. a description of the engineering design 
+3. the process of setting up both Jetson Nano and AWS
+
+[A full video demo and project explanation can be found here.](https://youtu.be/UVe5LXdPUYs) 
+
+# Setting up Nvidia Jetson Nano
+
+This repository only contains the details and code to setup the Nvidia Jetson Nano and run the MaViS software.
 
 Setting up the Jetson Nano includes the following steps:
 1. Install JetPack 4.5.1
