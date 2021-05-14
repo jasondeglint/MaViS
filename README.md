@@ -109,4 +109,5 @@ For example:
 1. autocreate folders if they don't exist
 2. add a flag to upload to AWS
 3. check that the CLI inputs are correct
-
+4. add final report to github link and repo
+5. submit project!
