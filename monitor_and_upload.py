@@ -4,15 +4,32 @@ import cv2
 import numpy as np
 import time
 import boto3
+import argparse
 
 from upload_data import upload_file
 
+parser = argparse.ArgumentParser()
+parser.add_argument("IN_FOLDER")
+parser.add_argument("OUT_FOLDER")
+parser.add_argument("SAVE_TO_AWS", type=bool)
+args = parser.parse_args()
+print(args)
 
-IN_FOLDER = '/home/bll/output4/'
-OUT_FOLDER = '/home/bll/archive/'
+IN_FOLDER = args.IN_FOLDER
+OUT_FOLDER = args.OUT_FOLDER
+SAVE_TO_AWS = args.SAVE_TO_AWS
+
+
+if os.path.exists(OUT_FOLDER):
+    print("The output folder %s already exists.\n" % OUT_FOLDER)
+else:
+    os.mkdir(OUT_FOLDER)
+    print("Createing output folder %s.\n" % OUT_FOLDER)
 
 def write_video(IN_FOLDER, frames, video_file):
-    img = cv2.imread(IN_FOLDER + frames[0])
+    path = os.path.join(IN_FOLDER,frames[0])
+    img = cv2.imread(path)
+    print(path)
     height, width, layers = img.shape
     img_size = (width,height)
 
@@ -25,7 +42,7 @@ def write_video(IN_FOLDER, frames, video_file):
 s3_client = boto3.client('s3')
 metadata = {
     "sender": "jason@bluelionlabs.com",
-    "receiver": "jason@bluelionlabs.com   juan@bluelionlabs.com"
+    "receiver": "jason@bluelionlabs.com"
 }
 
 reset = True
@@ -61,8 +78,9 @@ while True:
             new_scene = False
 
             #TODO: write image_ouput_file to S3
-            print('Uploading image...')            
-            upload_file(s3_client, image_ouput_file, metadata=metadata)
+            if SAVE_TO_AWS:
+                print('Uploading image...')            
+                upload_file(s3_client, image_ouput_file, metadata=metadata)
 
     else:
         #print('no new files')
@@ -75,13 +93,14 @@ while True:
                 write_video(IN_FOLDER, all_files, video_output_file)
 
                 # TODO: write video_output_file to S3
-                print('Uploading video...')
-                #upload_file(s3_client, video_output_file, metadata=metadata)
-                
+                if SAVE_TO_AWS:
+                    print('Uploading video...')
+                    upload_file(s3_client, video_output_file, metadata=metadata)
+                    
             # remove all previous images
             print('RESET')
             for file in all_files:
-                os.remove(IN_FOLDER+file)
+                os.remove(os.path.join(IN_FOLDER,file))
             reset = True
 
 
