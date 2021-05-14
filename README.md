@@ -91,7 +91,7 @@ To run the DeepStream code:
 
 For example:
 
-`$ python3 main.py /dev/video0 ~/images`
+`$ python3 main.py /dev/video0 ~/images/`
 
 ### Monitor & Archive
 
@@ -103,11 +103,8 @@ Where, `UPLOAD_TO_AWS` is a boolean.
 
 For example:
 
-`$ python3 monitor_and_upload.py ~/images ~/archive True`
+`$ python3 monitor_and_upload.py ~/images/ ~/archive/ True`
 
 # To Do
-1. autocreate folders if they don't exist
-2. add a flag to upload to AWS
-3. check that the CLI inputs are correct
 4. add final report to github link and repo
 5. submit project!
