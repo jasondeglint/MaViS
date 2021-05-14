@@ -18,9 +18,9 @@ When implementing the edge component the project went through three interations.
 # Full Project Details
 
 A [short report]() is available that includes:
-1. a more detailed histor
-2. a description of the engineering design 
-3. the process of setting up both Jetson Nano and AWS
+1. A more detailed project history.
+2. A description of the engineering design.
+3. The process of setting up both Jetson Nano and AWS.
 
 [A full video demo and project explanation can be found here.](https://youtu.be/UVe5LXdPUYs) 
 
@@ -97,9 +97,16 @@ For example:
 
 To run the montoring code:
 
-`$ python3 monitor_and_upload.py <input-folder-name> <archive-folder-name>`
+`$ python3 monitor_and_upload.py <input-folder-name> <archive-folder-name> UPLOAD_TO_AWS`
+
+Where, `UPLOAD_TO_AWS` is a boolean.
 
 For example:
 
-`$ python3 monitor_and_upload.py ~/images ~/archive`
+`$ python3 monitor_and_upload.py ~/images ~/archive True`
+
+# To Do
+1. autocreate folders if they don't exist
+2. add a flag to upload to AWS
+3. check that the CLI inputs are correct
 
