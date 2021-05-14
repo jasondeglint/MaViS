@@ -67,12 +67,31 @@ $ pip3 install awscli --upgrade --user
 
 ## 5. Run MaViS
 
+The Python code for the Nvidia Jetson contains two mains scripts: 
+1. `The main.py` script monitors the video stream and automatically saves frames that contain a positive classification. 
+2. The `monitor_and_upload.py` script uploads a sample image as soon as an intruder enters a scene, and then also uploads a video once the intruder leaves the scene.
+
 <img src="/media/jetson_code.png" width=600>
 
-To run the test app:
+To properly run the entire system you must run both scripts at the same in two separate terminals.
 
-`$ python3 main.py <v4l2-device-path> <folder-name>`
+### Video Streaming & Inference using DeepStream
 
-Example:
+To run the DeepStream code:
 
-`$ python3 main.py /dev/video0 ~/output`
+`$ python3 main.py <v4l2-device-path> <output-folder-name>`
+
+For example:
+
+`$ python3 main.py /dev/video0 ~/images`
+
+### Monitor & Archive
+
+To run the montoring code:
+
+`$ python3 monitor_and_upload.py <input-folder-name> <archive-folder-name>`
+
+For example:
+
+`$ python3 monitor_and_upload.py ~/images ~/archive`
+
