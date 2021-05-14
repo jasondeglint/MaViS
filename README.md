@@ -37,14 +37,22 @@ Setting up the Jetson Nano includes the following steps:
 
 ## 1. Install JetPack 4.5.1
 
+To install JetPack 4.5.1, please follow the [instructions here](https://docs.nvidia.com/jetson/jetpack/install-jetpack/index.html).
+
 ## 2. Install DeepStream SDK 5.1
+
+To install DeepStream SDK 5.1, plese follow the [instructions here](https://docs.nvidia.com/metropolis/deepstream/dev-guide/text/DS_Quickstart.html).
 
 ## 3. Install MaViS
 
-## 4. Setup AWS Connection (Optional)
+To install MaViS clone this repository:
+
+`$ git clone https://github.com/jasondeglint/MaViS.git`
 
 
-Setup:
+## 4. Setup AWS Connection (optional)
+
+To setup AWS run the following commands:
 
 ```
 $ sudo apt install python3-pip
@@ -52,14 +60,14 @@ $ pip3 install boto3
 $ pip3 install awscli --upgrade --user
 ```
 
+To setup your login credentials run the following command:
 
-To setup AWS:
 `$  python3 -m awscli configure`
 
 This will create a `credentials` file in the `~/.aws` folder.
 
 
-To check:
+To check that the install and credentials are working, run:
 
 ```
 $ pip3 install awscli --upgrade --user
@@ -67,7 +75,7 @@ $ pip3 install awscli --upgrade --user
 
 ## 5. Run MaViS
 
-The Python code for the Nvidia Jetson contains two mains scripts: 
+The Python code for the Nvidia Jetson contains two scripts: 
 1. `The main.py` script monitors the video stream and automatically saves frames that contain a positive classification. 
 2. The `monitor_and_upload.py` script uploads a sample image as soon as an intruder enters a scene, and then also uploads a video once the intruder leaves the scene.
 
