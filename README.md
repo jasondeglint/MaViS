@@ -20,7 +20,7 @@ Implementing the edge component the project went through three interations. This
 A [short report](/media/MaViS_short_report.pdf) is available that includes:
 1. A more detailed project history.
 2. A description of the engineering design.
-3. The process of setting up both Jetson Nano and AWS.
+3. The process of setting up the Raspberry Pi 4, the Jetson Nano and AWS.
 
 [A full video demo and project explanation can be found here.](https://youtu.be/UVe5LXdPUYs) 
 
